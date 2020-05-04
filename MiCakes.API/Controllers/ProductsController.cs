@@ -35,9 +35,10 @@ namespace MiCakes.API.Controllers
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProducts(string sort)
+    public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProducts(
+      string sort, int? brandId, int? typeId)
     {
-      var spec = new ProductsWithTypesAndBrandsSpec(sort);
+      var spec = new ProductsWithTypesAndBrandsSpec(sort, brandId, typeId);
       var products = await _productsRepo.ListAsync(spec);
       return Ok(_mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(products));
     }
