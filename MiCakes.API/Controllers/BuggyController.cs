@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MiCakes.API.Controllers
 {
+  [ApiExplorerSettings(IgnoreApi = true)]
   public class BuggyController : BaseApiController
   {
     private readonly StoreContext _context;

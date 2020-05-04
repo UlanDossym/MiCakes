@@ -8,6 +8,8 @@ using Core.Specifications;
 using MiCakes.API.Dtos;
 using System.Linq;
 using AutoMapper;
+using MiCakes.API.Errors;
+using Microsoft.AspNetCore.Http;
 
 namespace MiCakes.API.Controllers
 {
@@ -31,6 +33,8 @@ namespace MiCakes.API.Controllers
     }
 
     [HttpGet]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
     public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProducts()
     {
       var spec = new ProductsWithTypesAndBrandsSpec();
@@ -38,10 +42,14 @@ namespace MiCakes.API.Controllers
       return Ok(_mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(products));
     }
     [HttpGet("{id}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
     public async Task<ActionResult<ProductToReturnDto>> GetProduct(int id)
     {
       var spec = new ProductsWithTypesAndBrandsSpec(id);
       var product = await _productsRepo.GetEntityWithSpec(spec);
+      if (product == null)
+        return NotFound(new ApiResponse(404));
       return _mapper.Map<Product, ProductToReturnDto>(product);
     }
     [HttpGet("brands")]
