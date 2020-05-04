@@ -1,13 +1,16 @@
+using System.Linq;
 using AutoMapper;
 using Core.Interfaces;
 using Infrastructure.Data;
+using MiCakes.API.Errors;
 using MiCakes.API.Helpers;
+using MiCakes.API.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 namespace MiCakes.API
 {
@@ -28,16 +31,29 @@ namespace MiCakes.API
       services.AddControllers();
       services.AddDbContext<StoreContext>(x =>
         x.UseSqlite(_config.GetConnectionString("DefaultConnection")));
+      services.Configure<ApiBehaviorOptions>(o =>
+      {
+        o.InvalidModelStateResponseFactory = actionContext =>
+        {
+          var errors = actionContext.ModelState
+            .Where(i => i.Value.Errors.Count > 0)
+            .SelectMany(x => x.Value.Errors)
+            .Select(x => x.ErrorMessage)
+            .ToArray();
+          var errorResponse = new ApiValidationErrorResponse
+          {
+            Errors = errors
+          };
+          return new BadRequestObjectResult(errorResponse);
+        };
+      });
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-      if (env.IsDevelopment())
-      {
-        app.UseDeveloperExceptionPage();
-      }
-
+      app.UseMiddleware<ExceptionMiddleware>();
+      app.UseStatusCodePagesWithReExecute("/errors/{0}");
       app.UseHttpsRedirection();
 
       app.UseRouting();
