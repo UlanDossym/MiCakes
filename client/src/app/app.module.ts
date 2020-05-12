@@ -19,7 +19,6 @@ import { HomeModule } from './home/home.module';
     BrowserAnimationsModule,
     HttpClientModule,
     CoreModule,
-    ShopModule,
     PaginationModule.forRoot(),
     HomeModule
   ],
