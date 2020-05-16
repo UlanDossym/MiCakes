@@ -19,6 +19,7 @@ export class BasketService {
     return this.httpClient.get(this.baseUrl + 'basket?id=' + id).pipe(
       map((basket: IBasket) => {
         this.basketSource.next(basket);
+        console.log(this.basketSource.value);
       })
     );
   }
