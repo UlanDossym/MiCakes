@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 import { IProduct } from '../shared/models/product';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class BasketService {
   baseUrl = environment.apiUrl;
@@ -18,7 +18,7 @@ export class BasketService {
 
   constructor(private httpClient: HttpClient) {}
   getBasket(id: string) {
-    return this.httpClient.get(this.baseUrl + "basket?id=" + id).pipe(
+    return this.httpClient.get(this.baseUrl + 'basket?id=' + id).pipe(
       map((basket: IBasket) => {
         this.basketSource.next(basket);
         this.calculateTotals();
@@ -26,7 +26,7 @@ export class BasketService {
     );
   }
   setBasket(basket: IBasket) {
-    return this.httpClient.post(this.baseUrl + "basket", basket).subscribe(
+    return this.httpClient.post(this.baseUrl + 'basket', basket).subscribe(
       (response: IBasket) => {
         this.basketSource.next(response);
         this.calculateTotals();
@@ -69,7 +69,7 @@ export class BasketService {
   }
   createBasket(): IBasket {
     const basket = new Basket();
-    localStorage.setItem("basket_id", basket.id);
+    localStorage.setItem('basket_id', basket.id);
     return basket;
   }
   mapProductItemToBasketItem(item: IProduct, quantity: number): IBasketItem {
@@ -83,7 +83,7 @@ export class BasketService {
       type: item.productType,
     };
   }
-  private calculateTotals(){
+  private calculateTotals() {
     const basket = this.getCurrentBasketValue();
     const shipping = 0;
     const subTotal = basket.items.reduce((a, b) => b.price * b.quantity + a, 0);
