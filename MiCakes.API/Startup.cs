@@ -1,5 +1,6 @@
 using AutoMapper;
 using Infrastructure.Data;
+using Infrastructure.Identity;
 using MiCakes.API.Extensions;
 using MiCakes.API.Helpers;
 using MiCakes.API.Middleware;
@@ -25,9 +26,16 @@ namespace MiCakes.API
     {
       services.AddAutoMapper(typeof(MappingProfiles));
       services.AddControllers();
+
       services.AddDbContext<StoreContext>(x =>
         x.UseSqlite(_config.GetConnectionString("DefaultConnection")));
-      services.AddSingleton<IConnectionMultiplexer>(c => {
+      services.AddDbContext<AppIdentityDbContext>(x =>
+      {
+        x.UseSqlite(_config.GetConnectionString("IdentityConnection"));
+      });
+      services.AddIdentityServices(_config);
+      services.AddSingleton<IConnectionMultiplexer>(c =>
+      {
         var config = ConfigurationOptions.Parse(_config
           .GetConnectionString("Redis"), true);
         return ConnectionMultiplexer.Connect(config);
@@ -53,7 +61,10 @@ namespace MiCakes.API
       app.UseRouting();
       app.UseStaticFiles();
       app.UseCors("CorsPolicy");
+
+      app.UseAuthentication();
       app.UseAuthorization();
+      
       app.UseSwaggerDoc();
       app.UseEndpoints(endpoints =>
       {

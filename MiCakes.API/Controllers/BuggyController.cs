@@ -1,5 +1,6 @@
 using Infrastructure.Data;
 using MiCakes.API.Errors;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MiCakes.API.Controllers
@@ -12,7 +13,13 @@ namespace MiCakes.API.Controllers
     {
       _context = context;
     }
-
+    [HttpGet("testauth")]
+    [Authorize]
+    public ActionResult<string> GetSecretText()
+    {
+      // should not be able to see this unless authorized
+      return "secret stuff";
+    }
     [HttpGet("notfound")]
     public ActionResult GetNotFoundRequest()
     {
