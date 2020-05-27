@@ -11,6 +11,22 @@ namespace MiCakes.API.Extensions
       services.AddSwaggerGen(c =>
        {
          c.SwaggerDoc("v1", new OpenApiInfo { Title = "MiCakes API", Version = "v1" });
+         var securitySchema = new OpenApiSecurityScheme
+         {
+           Description = "JWT Auth Bearer Scheme",
+           Name = "Authorization",
+           In = ParameterLocation.Header,
+           Type = SecuritySchemeType.Http,
+           Scheme = "bearer",
+           Reference = new OpenApiReference
+           {
+             Type = ReferenceType.SecurityScheme,
+             Id = "Bearer"
+           }
+         };
+         c.AddSecurityDefinition("Bearer", securitySchema);
+         var securityReq = new OpenApiSecurityRequirement{{securitySchema, new []{"Bearer"}}};
+         c.AddSecurityRequirement(securityReq);
        }
       );
       return services;
