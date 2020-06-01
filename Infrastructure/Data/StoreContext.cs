@@ -3,6 +3,8 @@ using Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Core.Entities.OrderAggregate;
+using System;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Infrastructure.Data
 {
@@ -26,10 +28,21 @@ namespace Infrastructure.Data
         // workaround for decimal types in Sqlite
         foreach (var entityType in builder.Model.GetEntityTypes())
         {
-          var props = entityType.ClrType.GetProperties().Where(p => p.PropertyType == typeof(decimal));
+          var props = entityType.ClrType.GetProperties()
+            .Where(p => p.PropertyType == typeof(decimal));
+
+          var dateTimeProps = entityType.ClrType.GetProperties()
+            .Where(p => p.PropertyType == typeof(DateTimeOffset));
+
           foreach (var prop in props)
           {
             builder.Entity(entityType.Name).Property(prop.Name).HasConversion<double>();
+          }
+
+          foreach (var prop in dateTimeProps)
+          {
+            builder.Entity(entityType.Name).Property(prop.Name)
+              .HasConversion(new DateTimeOffsetToBinaryConverter());
           }
         };
       }

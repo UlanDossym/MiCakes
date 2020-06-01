@@ -1,7 +1,7 @@
 namespace Core.Entities.OrderAggregate
 {
-    public class OrderItem : BaseEntity
-    {
+  public class OrderItem : BaseEntity
+  {
     public OrderItem()
     {
     }
@@ -14,7 +14,7 @@ namespace Core.Entities.OrderAggregate
     }
 
     public ProductItemOrdered ItemOrdered { get; set; }
-        public decimal Price { get; set; }
-        public int Quantity { get; set; }
-    }
+    public decimal Price { get; set; }
+    public int Quantity { get; set; }
+  }
 }
