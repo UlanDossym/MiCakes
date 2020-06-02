@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MiCakes.API.Controllers
 {
-  [Route("api/orders")]
+  [Authorize]
   public class OrdersController : BaseApiController
   {
     private readonly IOrderService _orderService;
