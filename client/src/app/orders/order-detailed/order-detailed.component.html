@@ -9,7 +9,12 @@
         ></app-basket-summary>
       </div>
       <div class="col-4">
-        <app-order-totals></app-order-totals>
+        <app-order-totals
+          [subTotal]="order.subtotal"
+          [shipping]="order.shippingPrice"
+          [total]="order.total"
+          [isCheckout]="false">
+        </app-order-totals>
       </div>
     </div>
   </div>
