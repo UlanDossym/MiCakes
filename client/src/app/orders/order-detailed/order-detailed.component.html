@@ -1,0 +1,16 @@
+<ng-container *ngIf="order && order.orderItems">
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-8">
+        <app-basket-summary
+          [isOrder]="true"
+          [isBasket]="false"
+          [items]="order.orderItems"
+        ></app-basket-summary>
+      </div>
+      <div class="col-4">
+        <app-order-totals></app-order-totals>
+      </div>
+    </div>
+  </div>
+</ng-container>
