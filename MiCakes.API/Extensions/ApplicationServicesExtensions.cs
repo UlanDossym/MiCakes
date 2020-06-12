@@ -18,6 +18,7 @@ namespace MiCakes.API.Extensions
       services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
       services.AddScoped<IBasketRepository, BasketRepository>();
       services.AddScoped<IOrderService, OrderService>();
+      services.AddScoped<IPaymentService, PaymentService>();
       services.Configure<ApiBehaviorOptions>(o =>
       {
         o.InvalidModelStateResponseFactory = actionContext =>
