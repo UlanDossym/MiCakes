@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Core.Entities;
@@ -6,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using Core.Interfaces;
 using Core.Specifications;
 using MiCakes.API.Dtos;
-using System.Linq;
 using AutoMapper;
 using MiCakes.API.Errors;
 using Microsoft.AspNetCore.Http;
@@ -34,6 +32,7 @@ namespace MiCakes.API.Controllers
     }
 
     [HttpGet]
+    [Cached(600)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
     public async Task<ActionResult<Pagination<ProductToReturnDto>>> GetProducts(
@@ -47,6 +46,7 @@ namespace MiCakes.API.Controllers
       return Ok(new Pagination<ProductToReturnDto>(productParams.PageIndex, productParams.PageSize, totalItems, data));
     }
     [HttpGet("{id}")]
+    [Cached(600)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
     public async Task<ActionResult<ProductToReturnDto>> GetProduct(int id)
@@ -58,12 +58,14 @@ namespace MiCakes.API.Controllers
       return _mapper.Map<Product, ProductToReturnDto>(product);
     }
     [HttpGet("brands")]
+    [Cached(600)]
     public async Task<ActionResult<ProductBrand>> GetProductBrands()
     {
       var brands = await _brandsRepo.ListAllAsync();
       return Ok(brands);
     }
     [HttpGet("types")]
+    [Cached(600)]
     public async Task<ActionResult<ProductBrand>> GetProductTypes()
     {
       var types = await _typesRepo.ListAllAsync();
