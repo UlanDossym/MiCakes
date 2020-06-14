@@ -1,4 +1,3 @@
-using System.IO;
 using AutoMapper;
 using Infrastructure.Data;
 using Infrastructure.Identity;
@@ -10,7 +9,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.FileProviders;
 using StackExchange.Redis;
 
 namespace MiCakes.API
@@ -62,23 +60,15 @@ namespace MiCakes.API
 
       app.UseRouting();
       app.UseStaticFiles();
-      app.UseStaticFiles(new StaticFileOptions
-      {
-        FileProvider = new PhysicalFileProvider(
-          Path.Combine(Directory.GetCurrentDirectory(), "Contents")
-        ),
-        RequestPath = "/contents"
-      });
       app.UseCors("CorsPolicy");
 
       app.UseAuthentication();
       app.UseAuthorization();
-
+      
       app.UseSwaggerDoc();
       app.UseEndpoints(endpoints =>
       {
         endpoints.MapControllers();
-        endpoints.MapFallbackToController("Index", "Fallback");
       });
     }
   }
