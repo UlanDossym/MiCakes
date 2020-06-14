@@ -6,6 +6,66 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["orders-orders-module"], {
   /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/orders/order-detailed/order-detailed.component.html":
+  /*!***********************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/orders/order-detailed/order-detailed.component.html ***!
+    \***********************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppOrdersOrderDetailedOrderDetailedComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<ng-container *ngIf=\"order && order.orderItems\">\n  <div class=\"container mt-5\">\n    <div class=\"row\">\n      <div class=\"col-8\">\n        <app-basket-summary\n          [isOrder]=\"true\"\n          [isBasket]=\"false\"\n          [items]=\"order.orderItems\"\n        ></app-basket-summary>\n      </div>\n      <div class=\"col-4\">\n        <app-order-totals\n          [subTotal]=\"order.subtotal\"\n          [shipping]=\"order.shippingPrice\"\n          [total]=\"order.total\"\n          [isCheckout]=\"false\">\n        </app-order-totals>\n      </div>\n    </div>\n  </div>\n</ng-container>\n";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/orders/orders.component.html":
+  /*!************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/orders/orders.component.html ***!
+    \************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppOrdersOrdersComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"container mt-5\">\n    <div class=\"row\">\n      <div class=\"col-12\">\n        <table class=\"table table-hover\" style=\"cursor: pointer;\">\n          <thead class=\"thead-light\">\n          <tr>\n            <th>Order</th>\n            <th>Date</th>\n            <th>Total</th>\n            <th>Status</th>\n          </tr>\n          </thead>\n          <tbody>\n          <tr *ngFor=\"let order of orders\" routerLink=\"/orders/{{order.id}}\">\n            <th># {{order.id}}</th>\n            <td>{{order.orderDate | date: 'medium'}}</td>\n            <td>{{order.total | currency}}</td>\n            <td>{{order.status}}</td>\n          </tr>\n          </tbody>\n        </table>\n      </div>\n    </div>\n  </div>\n";
+    /***/
+  },
+
+  /***/
+  "./src/app/orders/order-detailed/order-detailed.component.scss":
+  /*!*********************************************************************!*\
+    !*** ./src/app/orders/order-detailed/order-detailed.component.scss ***!
+    \*********************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppOrdersOrderDetailedOrderDetailedComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL29yZGVycy9vcmRlci1kZXRhaWxlZC9vcmRlci1kZXRhaWxlZC5jb21wb25lbnQuc2NzcyJ9 */";
+    /***/
+  },
+
+  /***/
   "./src/app/orders/order-detailed/order-detailed.component.ts":
   /*!*******************************************************************!*\
     !*** ./src/app/orders/order-detailed/order-detailed.component.ts ***!
@@ -27,85 +87,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    "./node_modules/@angular/core/fesm2015/core.js");
     /* harmony import */
 
 
-    var xng_breadcrumb__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    var xng_breadcrumb__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! xng-breadcrumb */
-    "./node_modules/xng-breadcrumb/__ivy_ngcc__/fesm2015/xng-breadcrumb.js");
+    "./node_modules/xng-breadcrumb/fesm2015/xng-breadcrumb.js");
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    "./node_modules/@angular/router/fesm2015/router.js");
     /* harmony import */
 
 
-    var _orders_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _orders_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ../orders.service */
     "./src/app/orders/orders.service.ts");
-    /* harmony import */
-
-
-    var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! @angular/common */
-    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-    /* harmony import */
-
-
-    var _shared_components_basket_summary_basket_summary_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../shared/components/basket-summary/basket-summary.component */
-    "./src/app/shared/components/basket-summary/basket-summary.component.ts");
-    /* harmony import */
-
-
-    var _shared_components_order_totals_order_totals_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ../../shared/components/order-totals/order-totals.component */
-    "./src/app/shared/components/order-totals/order-totals.component.ts");
-
-    function OrderDetailedComponent_ng_container_0_Template(rf, ctx) {
-      if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 3);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](4, "app-basket-summary", 4);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 5);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](6, "app-order-totals", 6);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerEnd"]();
-      }
-
-      if (rf & 2) {
-        var ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("isOrder", true)("isBasket", false)("items", ctx_r0.order.orderItems);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("subTotal", ctx_r0.order.subtotal)("shipping", ctx_r0.order.shippingPrice)("total", ctx_r0.order.total)("isCheckout", false);
-      }
-    }
 
     var OrderDetailedComponent = /*#__PURE__*/function () {
       function OrderDetailedComponent(bcService, activatedRoute, ordersService) {
@@ -141,50 +149,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       return OrderDetailedComponent;
     }();
 
-    OrderDetailedComponent.ɵfac = function OrderDetailedComponent_Factory(t) {
-      return new (t || OrderDetailedComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](xng_breadcrumb__WEBPACK_IMPORTED_MODULE_1__["BreadcrumbService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_orders_service__WEBPACK_IMPORTED_MODULE_3__["OrdersService"]));
+    OrderDetailedComponent.ctorParameters = function () {
+      return [{
+        type: xng_breadcrumb__WEBPACK_IMPORTED_MODULE_2__["BreadcrumbService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]
+      }, {
+        type: _orders_service__WEBPACK_IMPORTED_MODULE_4__["OrdersService"]
+      }];
     };
 
-    OrderDetailedComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
-      type: OrderDetailedComponent,
-      selectors: [["app-order-detailed"]],
-      decls: 1,
-      vars: 1,
-      consts: [[4, "ngIf"], [1, "container", "mt-5"], [1, "row"], [1, "col-8"], [3, "isOrder", "isBasket", "items"], [1, "col-4"], [3, "subTotal", "shipping", "total", "isCheckout"]],
-      template: function OrderDetailedComponent_Template(rf, ctx) {
-        if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, OrderDetailedComponent_ng_container_0_Template, 7, 7, "ng-container", 0);
-        }
-
-        if (rf & 2) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.order && ctx.order.orderItems);
-        }
-      },
-      directives: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _shared_components_basket_summary_basket_summary_component__WEBPACK_IMPORTED_MODULE_5__["BasketSummaryComponent"], _shared_components_order_totals_order_totals_component__WEBPACK_IMPORTED_MODULE_6__["OrderTotalsComponent"]],
-      styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL29yZGVycy9vcmRlci1kZXRhaWxlZC9vcmRlci1kZXRhaWxlZC5jb21wb25lbnQuc2NzcyJ9 */"]
-    });
-    /*@__PURE__*/
-
-    (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](OrderDetailedComponent, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
-        args: [{
-          selector: 'app-order-detailed',
-          templateUrl: './order-detailed.component.html',
-          styleUrls: ['./order-detailed.component.scss']
-        }]
-      }], function () {
-        return [{
-          type: xng_breadcrumb__WEBPACK_IMPORTED_MODULE_1__["BreadcrumbService"]
-        }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
-        }, {
-          type: _orders_service__WEBPACK_IMPORTED_MODULE_3__["OrdersService"]
-        }];
-      }, null);
-    })();
+    OrderDetailedComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-order-detailed',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./order-detailed.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/orders/order-detailed/order-detailed.component.html"))["default"],
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./order-detailed.component.scss */
+      "./src/app/orders/order-detailed/order-detailed.component.scss"))["default"]]
+    })], OrderDetailedComponent);
     /***/
-
   },
 
   /***/
@@ -209,40 +193,46 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    "./node_modules/@angular/core/fesm2015/core.js");
     /* harmony import */
 
 
-    var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/common */
-    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+    "./node_modules/@angular/common/fesm2015/common.js");
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    "./node_modules/@angular/router/fesm2015/router.js");
     /* harmony import */
 
 
-    var _orders_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _orders_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ./orders.component */
     "./src/app/orders/orders.component.ts");
     /* harmony import */
 
 
-    var _order_detailed_order_detailed_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _order_detailed_order_detailed_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ./order-detailed/order-detailed.component */
     "./src/app/orders/order-detailed/order-detailed.component.ts");
 
     var routes = [{
       path: '',
-      component: _orders_component__WEBPACK_IMPORTED_MODULE_3__["OrdersComponent"]
+      component: _orders_component__WEBPACK_IMPORTED_MODULE_4__["OrdersComponent"]
     }, {
       path: ':id',
-      component: _order_detailed_order_detailed_component__WEBPACK_IMPORTED_MODULE_4__["OrderDetailedComponent"],
+      component: _order_detailed_order_detailed_component__WEBPACK_IMPORTED_MODULE_5__["OrderDetailedComponent"],
       data: {
         breadcrumb: {
           alias: 'orderDetails'
@@ -254,37 +244,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _classCallCheck(this, OrdersRoutingModule);
     };
 
-    OrdersRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
-      type: OrdersRoutingModule
-    });
-    OrdersRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
-      factory: function OrdersRoutingModule_Factory(t) {
-        return new (t || OrdersRoutingModule)();
-      },
-      imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    });
-
-    (function () {
-      (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](OrdersRoutingModule, {
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]],
-        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-      });
-    })();
-    /*@__PURE__*/
-
-
-    (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](OrdersRoutingModule, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
-        args: [{
-          declarations: [],
-          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
-          exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-        }]
-      }], null, null);
-    })();
+    OrdersRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forChild(routes)],
+      exports: [_angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"]]
+    })], OrdersRoutingModule);
     /***/
+  },
 
+  /***/
+  "./src/app/orders/orders.component.scss":
+  /*!**********************************************!*\
+    !*** ./src/app/orders/orders.component.scss ***!
+    \**********************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppOrdersOrdersComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL29yZGVycy9vcmRlcnMuY29tcG9uZW50LnNjc3MifQ== */";
+    /***/
   },
 
   /***/
@@ -309,85 +294,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
     /* harmony import */
 
 
-    var _orders_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _orders_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! ./orders.service */
     "./src/app/orders/orders.service.ts");
-    /* harmony import */
-
-
-    var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/common */
-    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-    /* harmony import */
-
-
-    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! @angular/router */
-    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-
-    function OrdersComponent_tr_15_Template(rf, ctx) {
-      if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "tr", 6);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "th");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "td");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](5, "date");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "td");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](8, "currency");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "td");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-      }
-
-      if (rf & 2) {
-        var order_r1 = ctx.$implicit;
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("routerLink", "/orders/", order_r1.id, "");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("# ", order_r1.id, "");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](5, 5, order_r1.orderDate, "medium"));
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](8, 8, order_r1.total));
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](order_r1.status);
-      }
-    }
 
     var OrdersComponent = /*#__PURE__*/function () {
       function OrdersComponent(ordersService) {
@@ -417,101 +338,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       return OrdersComponent;
     }();
 
-    OrdersComponent.ɵfac = function OrdersComponent_Factory(t) {
-      return new (t || OrdersComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_orders_service__WEBPACK_IMPORTED_MODULE_1__["OrdersService"]));
+    OrdersComponent.ctorParameters = function () {
+      return [{
+        type: _orders_service__WEBPACK_IMPORTED_MODULE_2__["OrdersService"]
+      }];
     };
 
-    OrdersComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
-      type: OrdersComponent,
-      selectors: [["app-orders"]],
-      decls: 16,
-      vars: 1,
-      consts: [[1, "container", "mt-5"], [1, "row"], [1, "col-12"], [1, "table", "table-hover", 2, "cursor", "pointer"], [1, "thead-light"], [3, "routerLink", 4, "ngFor", "ngForOf"], [3, "routerLink"]],
-      template: function OrdersComponent_Template(rf, ctx) {
-        if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "table", 3);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "thead", 4);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "tr");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "th");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, "Order");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "th");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, "Date");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "th");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, "Total");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "th");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, "Status");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "tbody");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](15, OrdersComponent_tr_15_Template, 11, 10, "tr", 5);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        }
-
-        if (rf & 2) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](15);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.orders);
-        }
-      },
-      directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgForOf"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterLink"]],
-      pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DatePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["CurrencyPipe"]],
-      styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL29yZGVycy9vcmRlcnMuY29tcG9uZW50LnNjc3MifQ== */"]
-    });
-    /*@__PURE__*/
-
-    (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](OrdersComponent, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
-        args: [{
-          selector: 'app-orders',
-          templateUrl: './orders.component.html',
-          styleUrls: ['./orders.component.scss']
-        }]
-      }], function () {
-        return [{
-          type: _orders_service__WEBPACK_IMPORTED_MODULE_1__["OrdersService"]
-        }];
-      }, null);
-    })();
+    OrdersComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-orders',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./orders.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/orders/orders.component.html"))["default"],
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./orders.component.scss */
+      "./src/app/orders/orders.component.scss"))["default"]]
+    })], OrdersComponent);
     /***/
-
   },
 
   /***/
@@ -536,37 +378,43 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    "./node_modules/@angular/core/fesm2015/core.js");
     /* harmony import */
 
 
-    var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/common */
-    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+    "./node_modules/@angular/common/fesm2015/common.js");
     /* harmony import */
 
 
-    var _order_detailed_order_detailed_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var _order_detailed_order_detailed_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ./order-detailed/order-detailed.component */
     "./src/app/orders/order-detailed/order-detailed.component.ts");
     /* harmony import */
 
 
-    var _orders_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _orders_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ./orders-routing.module */
     "./src/app/orders/orders-routing.module.ts");
     /* harmony import */
 
 
-    var _orders_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _orders_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ./orders.component */
     "./src/app/orders/orders.component.ts");
     /* harmony import */
 
 
-    var _shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _shared_shared_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ../shared/shared.module */
     "./src/app/shared/shared.module.ts");
 
@@ -574,36 +422,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _classCallCheck(this, OrdersModule);
     };
 
-    OrdersModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
-      type: OrdersModule
-    });
-    OrdersModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
-      factory: function OrdersModule_Factory(t) {
-        return new (t || OrdersModule)();
-      },
-      imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _orders_routing_module__WEBPACK_IMPORTED_MODULE_3__["OrdersRoutingModule"], _shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]]]
-    });
-
-    (function () {
-      (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](OrdersModule, {
-        declarations: [_order_detailed_order_detailed_component__WEBPACK_IMPORTED_MODULE_2__["OrderDetailedComponent"], _orders_component__WEBPACK_IMPORTED_MODULE_4__["OrdersComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _orders_routing_module__WEBPACK_IMPORTED_MODULE_3__["OrdersRoutingModule"], _shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]]
-      });
-    })();
-    /*@__PURE__*/
-
-
-    (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](OrdersModule, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
-        args: [{
-          declarations: [_order_detailed_order_detailed_component__WEBPACK_IMPORTED_MODULE_2__["OrderDetailedComponent"], _orders_component__WEBPACK_IMPORTED_MODULE_4__["OrdersComponent"]],
-          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _orders_routing_module__WEBPACK_IMPORTED_MODULE_3__["OrdersRoutingModule"], _shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]]
-        }]
-      }], null, null);
-    })();
+    OrdersModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_order_detailed_order_detailed_component__WEBPACK_IMPORTED_MODULE_3__["OrderDetailedComponent"], _orders_component__WEBPACK_IMPORTED_MODULE_5__["OrdersComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _orders_routing_module__WEBPACK_IMPORTED_MODULE_4__["OrdersRoutingModule"], _shared_shared_module__WEBPACK_IMPORTED_MODULE_6__["SharedModule"]]
+    })], OrdersModule);
     /***/
-
   },
 
   /***/
@@ -628,28 +451,34 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
     /* harmony import */
 
 
-    var src_environments_environment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! src/environments/environment */
-    "./src/environments/environment.ts");
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
     /* harmony import */
 
 
     var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/common/http */
-    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+    "./node_modules/@angular/common/fesm2015/http.js");
+    /* harmony import */
+
+
+    var src_environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/environments/environment */
+    "./src/environments/environment.ts");
 
     var OrdersService = /*#__PURE__*/function () {
       function OrdersService(http) {
         _classCallCheck(this, OrdersService);
 
         this.http = http;
-        this.baseUrl = src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].apiUrl;
+        this.baseUrl = src_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].apiUrl;
       }
 
       _createClass(OrdersService, [{
@@ -667,31 +496,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       return OrdersService;
     }();
 
-    OrdersService.ɵfac = function OrdersService_Factory(t) {
-      return new (t || OrdersService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]));
+    OrdersService.ctorParameters = function () {
+      return [{
+        type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
+      }];
     };
 
-    OrdersService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
-      token: OrdersService,
-      factory: OrdersService.ɵfac,
+    OrdersService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
       providedIn: 'root'
-    });
-    /*@__PURE__*/
-
-    (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](OrdersService, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
-        args: [{
-          providedIn: 'root'
-        }]
-      }], function () {
-        return [{
-          type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
-        }];
-      }, null);
-    })();
+    })], OrdersService);
     /***/
-
   }
 }]);
 //# sourceMappingURL=orders-orders-module-es5.js.map
