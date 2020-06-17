@@ -9,9 +9,11 @@ import { IOrder } from '../shared/models/order';
 export class OrdersService {
   baseUrl = environment.apiUrl;
   constructor(private http: HttpClient) {}
-  getOrders() {
-    return this.http.get<IOrder[]>(this.baseUrl + 'orders');
+
+  getOrdersForUser() {
+    return this.http.get(this.baseUrl + 'orders');
   }
+
   getOrder(id: number) {
     return this.http.get<IOrder>(this.baseUrl + 'orders/' + id);
   }

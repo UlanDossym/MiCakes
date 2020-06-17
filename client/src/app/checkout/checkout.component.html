@@ -19,11 +19,10 @@
     <div class="col-4">
       <app-order-totals
           *ngIf="(basketTotals$ | async)"
-          [shipping]="(basketTotals$ | async).shipping"
-          [subTotal]="(basketTotals$ | async).subTotal"
-          [total]="(basketTotals$ | async).total"
-          [isCheckout]="true">
-        </app-order-totals>
+          [shippingPrice]="(basketTotals$ | async).shipping"
+          [subtotal]="(basketTotals$ | async).subTotal"
+          [total]="(basketTotals$ | async).total">
+      </app-order-totals>
     </div>
   </div>
 </div>
