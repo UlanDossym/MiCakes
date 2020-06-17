@@ -9,13 +9,12 @@ import { IOrder } from '../shared/models/order';
 })
 export class OrdersComponent implements OnInit {
   orders: IOrder[];
-
+  
   constructor(private ordersService: OrdersService) {}
 
   ngOnInit() {
     this.getOrders();
   }
-
   getOrders() {
     this.ordersService.getOrdersForUser().subscribe(
       (orders: IOrder[]) => {
